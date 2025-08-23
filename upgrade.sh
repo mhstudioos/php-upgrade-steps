@@ -84,8 +84,8 @@ vendor/bin/rector process "$SRC_DIR" --ansi || true
 echo "== PHP-CS-Fixer: stijl & moderne syntax =="
 php "$TOOLS_DIR/php-cs-fixer.phar" fix "$SRC_DIR" --allow-risky=yes --verbose || true
 
-#echo "== PHPStan: statische analyse =="
-#php "$TOOLS_DIR/phpstan.phar" analyse "$SRC_DIR" --level=max || true
+echo "== PHPStan: statische analyse =="
+php "$TOOLS_DIR/phpstan.phar" analyse "$SRC_DIR" --level=max --memory-limit=2G || true
 
 echo "== PHPCBF: coding standards fix (PSR-12) =="
 php "$TOOLS_DIR/phpcbf.phar" --standard=PSR12 "$SRC_DIR" || true
